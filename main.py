@@ -7,12 +7,11 @@ app = Flask(__name__)
 @app.route('/', methods=["GET", "POST"])
 def index():
     if request.method == 'POST':
-
-        hit = request.form['hit']
-        crit = request.form['crit']
-        spd = request.form['spd']
-        dmg_min = request.form['min']
-        dmg_max = request.form['max']
+        hit = int(request.form['hit'])
+        crit = int(request.form['crit'])
+        spd = int(request.form['spd'])
+        dmg_min = int(request.form['min'])
+        dmg_max = int(request.form['max'])
 
         player = Player(hit, [dmg_min, dmg_max], crit, spd)
         monster = Monster(83)
@@ -33,6 +32,6 @@ def index():
 
             throws += 1
 
-        render_template("result.html", total=total, misses=misses, throws=throws, resist=monster.resist, log=results)
+        return render_template("result.html", total=total, misses=misses, throws=throws, resist=monster.resist, log=results)
     else:
-        render_template("index.html")
+        return render_template("index.html")
