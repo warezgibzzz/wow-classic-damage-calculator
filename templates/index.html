@@ -1,23 +1,46 @@
 {% extends "base.html" %}
-{% block title %}Input your data{% endblock %}
+{% block title %}{{ super() }}Input your data{% endblock %}
 {% block content %}
-<form action="/" method="post">
-  <div class="form-group row">
-    <label for="hit">Hit</label>
-    <input type="number" class="form-control" id="hit" name="hit">
-  </div>lass="form-group row">
-    <label for="crit">Crit rate</label>
-    <input type="number" class="form-control" id="crit" name="crit">
-  </div>lass="form-group row">
-    <label for="spd">Spell damage</label>
-    <input type="number" class="form-control" id="spd" name="spd">
-  </div>lass="form-group row">
-    <label for="min">Minimal spell damage</label>
-    <input type="number" class="form-control" id="min" name="min">
-  </div>lass="form-group row">
-    <label for="max">Maximum spell damage</label>
-    <input type="number" class="form-control" id="max" name="max">
-  </div>
-  <button type="submit" class="btn btn-primary">Roll!1111</button>
-</form>
+<div class="row">
+    <div id="content" class="col">
+        <h1>Input your data</h1>
+        <form action="/" method="post">
+            <div class="form-group row">
+                <label for="hit" class="col-sm-2">Hit rate</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="hit" name="hit"/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="crit" class="col-sm-2">Crit chance</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="crit" name="crit"/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="spd" class="col-sm-2">Spell damage</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="spd" name="spd"/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="min" class="col-sm-2">Minimal spell damage</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="min" name="min"/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="max" class="col-sm-2">Maximum spell damage</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="max" name="max"/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-12">
+                    <button type="submit" class="btn btn-primary">Roll!1111</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
 {% endblock %}

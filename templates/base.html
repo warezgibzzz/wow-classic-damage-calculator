@@ -8,12 +8,16 @@
     {% endblock %}
 </head>
 <body>
-    <div class="container">
+    <nav class="navbar navbar-light bg-light sticky-top">
+        <a class="navbar-brand" href="/">Mage damage calculator</a>
+    </nav>
+    <div class="container mt-3">
+        {% block content %}{% endblock %}
         <div class="row">
-            <div id="content" class="col">{% block content %}{% endblock %}</div>
-        </div>
-        <div class="row">
-            <div class="col">{% block footer %}With &heartsuit; from Gitolite{% endblock %}</div>
+            <div class="col">
+                <hr>
+                {% block footer %}With &heartsuit; from Gitolite{% endblock %}
+            </div>
         </div>
     </div>
     {% block scripts %}

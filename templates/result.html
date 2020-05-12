@@ -1,10 +1,99 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends "base.html" %}
+{% block title %}{{ super() }}Results{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col">
+    <h1>Your data</h1>
+    </div>
+</div>
+<div class="row mt-3">
+    <div class="col-sm-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Hit rate</h5>
+                <p class="card-text">{{ hit }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Crit chance</h5>
+                <p class="card-text">{{ crit }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Spell damage</h5>
+                <p class="card-text">{{ spd }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Damage (min-max)</h5>
+                <p class="card-text">{{ dmg_min }}-{{dmg_max}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row mt-3">
+    <div class="col">
+        <h2>Your results</h2>
+    </div>
+</div>
+<div class="row mt-3">
+    <div class="col-sm-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Total damage</h5>
+                <p class="card-text">{{total}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Misses</h5>
+                <p class="card-text">{{misses}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Dice rolls</h5>
+                <p class="card-text">{{throws}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Mob resist</h5>
+                <p class="card-text">{{ resist }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row mt-3">
+    <div class="col">
+        <h2>Roll data</h2>
+        <table class="table table-striped">
+            <tr>
+                <th scope="col">Roll #</th>
+                <th scope="col">Hit dmg/Miss</th>
+            </tr>
+            {% for row in log %}
+            <tr class="{% if row is integer %}table-success{% else %}table-danger{%endif%}">
+                <th scope="row"># {{ loop.index }}</th>
+                <td>{{ row }} </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock %}

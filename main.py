@@ -32,6 +32,18 @@ def index():
 
             throws += 1
 
-        return render_template("result.html", total=total, misses=misses, throws=throws, resist=monster.resist, log=results)
+        return render_template(
+            "result.html",
+            total=total,
+            misses=misses,
+            throws=throws,
+            resist=monster.resist,
+            log=results,
+            hit=hit,
+            crit=crit,
+            spd=spd,
+            dmg_min=dmg_min,
+            dmg_max=dmg_max
+        )
     else:
         return render_template("index.html")
